@@ -1,1 +1,35 @@
 /* Main CSS */
+
+body {
+	background-color: lightblue;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	text-align: center;
+}
+
+nav {
+	height: 40px;
+}
+
+li {
+	display: inline;
+	font-size: 17px;
+	width: 100%
+}
+
+a:hover {
+	color: green;
+	background-color: yellow;
+}
+
+a:active {
+	font-size: 22px;
+}
+
+nav ul {
+	display: flex;
+	margin: 0 auto;
+}
