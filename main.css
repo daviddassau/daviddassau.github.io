@@ -2,6 +2,7 @@
 
 body {
 	background-color: lightblue;
+	font-family: 'Montserrat', sans-serif;
 }
 
 ul {
@@ -33,3 +34,57 @@ nav ul {
 	display: flex;
 	margin: 0 auto;
 }
+
+
+/* Blog Page Stylings */
+
+/* Card Styling */
+
+.blog-post {
+	width: 400px;
+	border: 2px solid slategray;
+	margin: 1%;
+}
+
+.blog-body > * {
+	margin: 0;
+	text-align: left;
+	padding: .5em;
+}
+
+.blog-body {
+	padding: 2%;
+}
+
+.blog-body h6 {
+	font-size: 1.5em;
+	padding: 2%;
+}
+
+.blog-title {
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 0px;
+}
+
+.blog-date {
+	font-size: 12px;
+}
+
+/* CARD LAYOUT */
+
+#container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
