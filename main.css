@@ -41,6 +41,7 @@ nav ul {
 /* Card Styling */
 
 .blog-post {
+	background-color: white;
 	width: 400px;
 	border: 2px solid slategray;
 	margin: 1%;
