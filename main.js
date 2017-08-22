@@ -49,6 +49,12 @@ var post7 = {
 	postBody: "<p>We now have our first official team exercise under our belts, and it went really well. To be honest, I’m not sure if any other group had nearly as much fun as my group did with creating/coding the project.</p><p>Our task was to come up with a fake online company that sold either real or fake products, and then utilize all of the skills we have learned thus far to complete the project. My group mates and I came up with a company called “The Brocery Store,” which sold your typical “bro” items, such as Hoverboards and vape pens.</p><p>We designed and coded 6 pages for the site; 4 of which we worked on individually, and two which we all had contributions to. I really enjoyed this project for multiple reasons. First of all, it allowed me to further hone some HTML, CSS, and JS skills. Also, it allowed us to really work as a group for the first time, where we all contributed to one final product. In the past, it always seemed like I got grouped together with people that didn’t want to be there, and half-assed their way through the exercise. But with this, everyone was highly motivated to do their best, and worked to their full potential. It was quite refreshing.</p><p>I learned a few things about working as a group on a single project. First, and probably most importantly, communication is key, just like with any kind of relationship. I feel really lucky, everyone in my group is pretty good with communicating with one another. Another thing I learned was that it pays to have a good group leader that can delegate tasks. Dre was our team leader, and he did a fantastic job of fulfilling the role. One thing that really impressed me about Dre is how he knew everyone’s skill level, and then used that knowledge with delegating tasks. For instance, if he knew that you had a stronger understanding of HTML or CSS, he urged you to take more JavaScript tasks so you have the opportunity to practice.</p><p>The last thing I’ll say about this project was that it came at a great time. We had spent quite a bit of time deep diving into some pretty complex JavaScript, so it was nice to take a short breather from learning new material. The project gave me the chance to do more work with functions, objects, arrays, and loops, which was great since I desperately needed the practice.</p><p>So, all-in-all, I had a great first experience working on a group project, and I look forward to opportunities to do more of them!</p>"
 };
 
+var post8 = {
+	postTitle: "Are We Having Fun Yet?",
+	postDate: "August 22, 2017",
+	postBody: "<p>Our latest venture into the programming world has been working with event listeners in JavaScript, and learning how to “code” in markdown.</p><p>My had a few first impressions of event listeners. A few of them were “holy crap, there’s a lot to this,” and “oh my God, I’m drowning in new material.” Just like anything else with JS that we’ve learned so far, event listeners have been complicated. However, I think it’s probably the most fun I’ve had with JS so far, since now there’s a certain level of interactivity on the web page. I also get the feeling that it’s going to be similar when we learn jQuery: frustrating and stress-inducing at first, but fun once I get the hang of it.</p><p>When it came down to working on solo exercises where we implemented what we’ve learned about event listeners, I still needed a bit of nudge in the right direction. But after I got that initial push, it was much easier to handle the rest of the steps in the coding exercise. I’ve come to realize that, more than likely, every week there’s going to be moments where I freak out because I don’t know what’s going on, followed by a bit of crying, followed by assistance from a friend, and wrapped up with a general understanding of what’s going on. And I think I’m ok with this.</p><p>We’ve also learned about markdown, which is a way to “code” inside your README.md file. There really isn’t much that I have to say about markdown, aside from being excited to discover that the syntax is relatively painless to learn. It can almost be compared to learning about the formatting rules that Microsoft Word implements.</p><p>Other than those two things, there’s not much else to report. I shall speak with you next week after I have my next mental breakdown!</p>"
+};
+
 
 // Push all the post variables into the empty array
 allPosts.push(post1);
@@ -58,6 +64,7 @@ allPosts.push(post4);
 allPosts.push(post5);
 allPosts.push(post6);
 allPosts.push(post7);
+allPosts.push(post8);
 
 // Code to grab id DIV ID from the HTML
 var blogContainer = document.getElementById("blog-container");
@@ -80,18 +87,6 @@ for (var i = 0; i < allPosts.length; i++) {
 
     blogContainer.innerHTML += domString;
 }
-
-
-// JS for Read More button on Blog page
-// var span = document.getElementsByTagName('span')[0];
-// var hideshow = document.getElementById('hideshow');
-
-// span.style.display = 'none';
-
-// hideshow.onclick = function() {
-//   span.style.display = 'block';
-// };
-
 
 
 
