@@ -3,85 +3,90 @@
 body {
 	background-color: lightblue;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding-top: 5rem;
 }
 
-ul {
+/*ul {
 	list-style: none;
 	margin: 0;
 	text-align: center;
-}
+}*/
 
-nav {
+/*nav {
 	height: 40px;
 	background-color: #ffffff;
-}
+}*/
 
-li {
+/*li {
 	display: inline;
 	font-size: 17px;
 	width: 100%
-}
+}*/
 
-a:hover {
+/*a:hover {
 	color: green;
 	background-color: yellow;
-}
+}*/
 
-a:active {
+/*a:active {
 	font-size: 22px;
+}*/
+
+.all-articles {
+	margin-top: 2em;
 }
 
-nav ul {
+/*nav ul {
 	display: flex;
 	margin: 0 auto;
 	width: 60%;
-}
+}*/
 
 
 /* Blog Page Stylings */
 
 /* Card Styling */
 
-.blog-post {
+/*.blog-post {
 	background-color: white;
 	width: 400px;
 	border: 2px solid slategray;
 	margin: 1%;
-}
+}*/
 
-.blog-body > * {
+/*.blog-body > * {
 	margin: 0;
 	text-align: left;
 	padding: .5em;
-}
+}*/
 
-.blog-body {
+/*.blog-body {
 	padding: 2%;
-}
+}*/
 
-.blog-body h6 {
+/*.blog-body h6 {
 	font-size: 1.5em;
 	padding: 2%;
-}
+}*/
 
-.blog-title {
+/*.blog-title {
 	text-align: center;
 	text-transform: uppercase;
 	line-height: 0px;
-}
+}*/
 
-.blog-date {
+/*.blog-date {
 	font-size: 12px;
-}
+}*/
 
 /* CARD LAYOUT */
 
-#blog-container {
+/*#blog-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
-}
+}*/
 
 
 

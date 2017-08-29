@@ -75,15 +75,21 @@ for (var i = 0; i < allPosts.length; i++) {
 
 	var domString = "";
 
-	domString += '<section class="blog-post">';
-    domString +=    '<div class="blog-title">';
-    domString +=      '<h4>' + currentPost.postTitle + '</h4>';
-    domString +=      '<p class="blog-date">' + currentPost.postDate + '</p>';
-    domString +=    '</div>';
-    domString +=    '<div class="blog-body">';
-	domString +=	  '<p>' + currentPost.postBody + '</p>';
-    domString +=    '</div>'
-    domString += '</section>'
+	// domString += '<div class="row">';
+	domString +=   '<div class="col-sm-4">';
+	domString +=     '<div class="card" style="width: 20rem;">';
+	domString +=       '<div class="card-body">'
+    domString +=         '<div class="blog-title">';
+    domString +=           '<h4>' + currentPost.postTitle + '</h4>';
+    domString +=           '<p class="blog-date small">' + currentPost.postDate + '</p>';
+    domString +=         '</div>';
+    domString +=         '<div class="blog-body">';
+	domString +=	       '<p>' + currentPost.postBody + '</p>';
+    domString +=         '</div>';
+    domString +=       '</div>';
+    domString +=     '</div>';
+    domString +=   '</div>'
+    // domString += '</div>';
 
     blogContainer.innerHTML += domString;
 }
