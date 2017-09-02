@@ -27,6 +27,7 @@ function blogString(blogParam){
 
 
 function writeToDom(domString){
+	console.log(Date.now());
 	blogContainer.innerHTML = domString;
 }
 
