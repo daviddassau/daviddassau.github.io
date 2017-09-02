@@ -7,8 +7,8 @@ var blogContainer = document.getElementById("blog-container");
 function blogString(blogParam){
 	var domString = "";
 	for (var i = 0; i < blogParam.length; i++) {
-	domString +=   `<div class="col-md-4 set-height">`;
-	domString +=     `<div class="thumbnail">`;
+	domString +=   `<div class="col-md-4 col-sm-6 set-height">`;
+	domString +=     `<div class="thumbnail set-height">`;
 	domString +=       `<div class="caption">`;
     domString +=         `<div>`;
     domString +=           `<h4>${blogParam[i].postTitle}</h4>`;

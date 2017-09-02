@@ -15,8 +15,26 @@ body {
 }
 
 /*.set-height {
-	height: 1000px;
+	max-height: 220px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
 }*/
+
+.set-height {
+    display: block;
+    display: -webkit-box;
+    height: 220px;
+    margin: 0 auto;
+    line-height: 1.2;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+}
 
 /*ul {
 	list-style: none;
