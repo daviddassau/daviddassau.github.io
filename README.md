@@ -1,5 +1,7 @@
 # daviddassau.github.io
 
+# daviddassau.github.io
+
 # My Personal Site
 ### This project can be view at [daviddassau.github.io](https://daviddassau.github.io)
 
@@ -47,5 +49,52 @@ Your page should follow this mockup. Use Flexbox to achieve this:
 ![blog page screenshot](blogScreenShot.png)
 
 ##### Part 4 Requirements
+1. Create a main.js file and link to it in your blog.html
+1. Create an html element with the id ‘blog-holder’
+1. Make an array called blogs
+1. Add each of your existing blogs to the blogs array by making them into objects with the following key, value pairs: title, content, date (you should have at least 5 blog objects)
+1. Loop over the blogs array and build up the HTML card elements using the values from your blog objects
+1. Add the HTML you created in the last step to the blog-holder element
+> Final Result
+
+- HTML File:
+	- Navbar
+	- Blog-holder element
+- JS File:
+	- An array with 5 blog objects
+	- Variable that stores DOM container element
+	- Loop that iterates over the array, builds up a string, and then puts the string on the DOM
 
 ##### Part 5 Requirements
+1. Open your main.js file and blog.html.
+1. Create a JSON file that contains all the information for your blog posts ("blog-posts.json") - hopefully you've been keeping up with it 😉. Validate your JSON file.
+1. Create an XHR to load the data from your local json file.
+1. Loop over the blogs array returned from your XHR and build up the HTML card elements using the values from your blog objects.
+1. Add the HTML you created in the last step to the blog-holder element.
+
+> Final Result
+
+- HTML File:
+	- No change
+- JS File:
+	- XHR now returns an array
+	- Loop that iterates over the array, builds up a string, and then puts the string on the DOM (from previous exercise).
+
+##### Part 6 Requirements
+1. Open your main.js file and blog.html.
+1. Grid System: Use the grid system to display your blog entries. You should have 3 blog articles per row.
+1. Bootstrap Nav Bar: Should contain 3 elements:
+	* Your "Logo" or personal bio site title
+	* Input bar to search your blog posts (Logic specs for this in a later step). NOTE: This should only be visible from the Nav Bar on your Blog Page.
+	* All of the links to your other pages on your website
+1. Blog Page
+	* The elements on this page should utilize the full width of the screen.
+	* Update each of your blog posts so they all have a set height. Cut off any of the text that expands beyond the set height using some CSS. (Hint: checkout the overflow property).
+	* Whenever the user clicks on a specific blog post card, that blog should appear in a special div (that spans all 12 columns) above all of the blog posts and should show the full content of the blog. When the user clicks on another blog post, it should replace the content of this special div with the content of the new blog post the user selected.
+	- Bonus: Search
+		* Whenever the user types in the search bar, it should filter the blog posts. EG: The user types in "abou", the only remaining blog cards showing should be ones where your content contains the string "abou" somewhere.
+		* Add an array of "tags" to each of your blog post entries. These can be displayed on the card or not, your choice. Make it so the search function only applies to these tags. EG: The user types in "func", the only remaining blog cards showing should be ones where your tags array contains the string "func" at some index in the array.
+
+> Final Result
+
+

@@ -14,16 +14,7 @@ body {
 	box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
 }
 
-/*.set-height {
-	max-height: 220px;
-	white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    max-width: 100%;
-}*/
-
-.set-height {
+#blog-container .set-height {
     display: block;
     display: -webkit-box;
     height: 220px;
@@ -35,12 +26,6 @@ body {
     text-overflow: ellipsis;
     margin-bottom: 20px;
 }
-
-/*ul {
-	list-style: none;
-	margin: 0;
-	text-align: center;
-}*/
 
 /*nav {
 	height: 40px;

@@ -1,13 +1,13 @@
 // Main JS File
 
 // Code to grab id DIV ID from the HTML
-var blogContainer = document.getElementById("blog-container");
+const blogContainer = document.getElementById("blog-container");
 
 
-function blogString(blogParam){
-	var domString = "";
-	for (var i = 0; i < blogParam.length; i++) {
-	domString +=   `<div class="col-md-4 col-sm-6 set-height">`;
+const blogString = (blogParam) => {
+	let domString = "";
+	for (let i = 0; i < blogParam.length; i++) {
+	domString +=   `<div class="col-md-4 col-sm-6 set-height blogPost blogContainerDiv">`;
 	domString +=     `<div class="thumbnail set-height">`;
 	domString +=       `<div class="caption">`;
     domString +=         `<div>`;
@@ -26,8 +26,8 @@ function blogString(blogParam){
 }
 
 
-function writeToDom(domString){
-	console.log(Date.now());
+const writeToDom = (domString) => {
+	// console.log(Date.now());
 	blogContainer.innerHTML = domString;
 }
 
@@ -37,14 +37,14 @@ function runThisAfterBlogLoads() {
 	blogString(data.blog);
 }
 
-function shitsBroke() {
+const shitsBroke = () => {
 	// console.log("Shit broke");
 }
 
 
 
 // XHR Request from JSON File
-var blogJsonRequest = new XMLHttpRequest();
+let blogJsonRequest = new XMLHttpRequest();
 blogJsonRequest.addEventListener("load", runThisAfterBlogLoads);
 blogJsonRequest.addEventListener("error", shitsBroke);
 blogJsonRequest.open("GET", "blog.json");
@@ -54,6 +54,34 @@ blogJsonRequest.send();
 
 
 
+
+
+
+
+
+const blogPosts = document.getElementById("blog-container");
+let selectedBlogPostDiv = document.getElementById("selectedBlogPost");
+
+// Event listener for when user clicks on single blog post
+blogPosts.addEventListener('click', function(event){
+	showPostInMainDiv(event);
+});
+
+showPostInMainDiv = (event) => {
+	if(event.target.classList.contains("blogContainerDiv")){
+		selectedBlogPost = event.target;
+		} else if (event.target.parentNode.classList.contains("blogContainerDiv")){
+	    selectedBlogPost = event.target.parentNode;
+	    } else if (event.target.parentNode.parentNode.classList.contains("blogContainerDiv")){
+	    selectedBlogPost = event.target.parentNode.parentNode;
+	  	} else if (event.target.parentNode.parentNode.parentNode.classList.contains("blogContainerDiv")){
+	    selectedBlogPost = event.target.parentNode.parentNode.parentNode;
+	  	} else if (event.target.parentNode.parentNode.parentNode.parentNode.classList.contains("blogContainerDiv")){
+	    selectedBlogPost = event.target.parentNode.parentNode.parentNode.parentNode;
+	  	}
+	  	console.log(selectedBlogPost);
+	  	selectedBlogPostDiv.innerHTML = selectedBlogPost.innerHTML;
+}
 
 
 
