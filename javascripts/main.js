@@ -3,6 +3,8 @@
 // Code to grab id DIV ID from the HTML
 const blogContainer = document.getElementById("blog-container");
 
+// const blogContainer = $("#blog-container");
+
 
 const blogString = (blogParam) => {
 	let domString = "";
@@ -31,6 +33,10 @@ const writeToDom = (domString) => {
 	blogContainer.innerHTML = domString;
 }
 
+// const writeToDom = (domString) => {
+// 	$('blog-container').html(domString);
+// }
+
 
 function runThisAfterBlogLoads() {
 	var data = JSON.parse(this.responseText);
@@ -47,11 +53,13 @@ const shitsBroke = () => {
 let blogJsonRequest = new XMLHttpRequest();
 blogJsonRequest.addEventListener("load", runThisAfterBlogLoads);
 blogJsonRequest.addEventListener("error", shitsBroke);
-blogJsonRequest.open("GET", "blog.json");
+blogJsonRequest.open("GET", "db/blog.json");
 blogJsonRequest.send();
 
 
+// $.ajax('./blog.json').done(() => {
 
+// });
 
 
 
@@ -66,6 +74,10 @@ let selectedBlogPostDiv = document.getElementById("selectedBlogPost");
 blogPosts.addEventListener('click', function(event){
 	showPostInMainDiv(event);
 });
+
+// $('#blogContainer').click(function(event) => {
+// 	showPostInMainDiv(event);
+// });
 
 showPostInMainDiv = (event) => {
 	if(event.target.classList.contains("blogContainerDiv")){
