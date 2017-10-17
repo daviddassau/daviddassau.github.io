@@ -2,7 +2,9 @@
 
 const data = require('./data');
 
-data();
+data.requestBlogPosts();
+
+data.onBlogClick();
 
 
 

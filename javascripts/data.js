@@ -3,40 +3,41 @@
 
 const dom = require('./dom');
 
-const runThisAfterBlogLoads = function(){
-	var data = JSON.parse(this.responseText);
-	dom(data.blog);
-};
-
-// function runThisAfterBlogLoads() {
-// 	var data = JSON.parse(this.responseText);
-// 	dom(data.blog);
-// }
-
-const itsBroken = () => {
-	// console.log("Shit broke");
-};
-
-
-// XHR Request from JSON File
-const loadBlogJSON = () => {
-	let blogJsonRequest = new XMLHttpRequest();
-	blogJsonRequest.addEventListener("load", runThisAfterBlogLoads);
-	blogJsonRequest.addEventListener("error", itsBroken);
-	blogJsonRequest.open("GET", "db/blog.json");
-	blogJsonRequest.send();
+// NEW JQUERY STUFF
+const requestBlogPosts = () => {
+	$.ajax('./db/blog.json').done((data) => {
+		dom(data.blog);
+	}).fail((error) => {
+		console.log(error);
+	});
 };
 
 
 
-const blogPosts = document.getElementById("blog-container");
-// const blogPosts = $("#blog-container");
-let selectedBlogPostDiv = document.getElementById("selectedBlogPost");
+
+const blogPosts = $("#blog-container");
+let selectedBlogPostDiv = $('#selectedBlogPost');
 
 // Event listener for when user clicks on single blog post
-blogPosts.addEventListener('click', function(event){
+// blogPosts.addEventListener('click', function(event){
+// 	showPostInMainDiv(event);
+// });
+
+const onBlogClick = () => {
+	$('#blog-container').click((event) => {
 	showPostInMainDiv(event);
-});
+    });
+};
+
+
+// const showPostInMainDiv = (event) => {
+// 	let selectedBlogPost;
+// 	if(){
+		
+// 	}
+// };
+
+
 
 const showPostInMainDiv = (event) => {
 	let selectedBlogPost;
@@ -56,17 +57,9 @@ const showPostInMainDiv = (event) => {
 };
 
 
-// NEW JQUERY STUFF
-// const requestBlogPosts = () => {
-// 	$.ajax('./db/blog.json').done((data) => {
-// 		// runThisAfterBlogLoads(data)
-// 		console.log(data);
-// 	}).fail((error) => {
-// 		console.log(error);
-// 	});
-// };
 
 
-module.exports = loadBlogJSON;
+
+module.exports = {requestBlogPosts, onBlogClick};
 
 
