@@ -1,6 +1,6 @@
 "use strict";
 
-const blogContainer = document.getElementById("blog-container");
+const blogContainer = $('#blog-container');
 
 const blogString = (blogParam) => {
 	let domString = "";
@@ -24,13 +24,8 @@ const blogString = (blogParam) => {
 };
 
 const writeToDom = (domString) => {
-	blogContainer.innerHTML = domString;
+    blogContainer.html(domString);
 };
-
-// JQUERY VERSION OF ^
-// const writeToDom = (domString) => {
-// 	$("#blog-container").html(domString);
-// };
 
 
 module.exports = blogString;
