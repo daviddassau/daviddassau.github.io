@@ -25,9 +25,9 @@ let selectedBlogPostDiv = $('#selectedBlogPost');
 // });
 
 const onBlogClick = () => {
-	$('#blog-container').click((event) => {
-	showPostInMainDiv(event);
-    });
+	$("#blog-container").on("click", ".blogContainerDiv", function(event){
+		showPostInMainDiv(event);
+	});
 };
 
 
@@ -41,20 +41,9 @@ const onBlogClick = () => {
 
 
 const showPostInMainDiv = (event) => {
-	let selectedBlogPost;
-	if(event.target.classList.contains("blogContainerDiv")){
-		selectedBlogPost = event.target;
-		} else if (event.target.parentNode.classList.contains("blogContainerDiv")){
-	    selectedBlogPost = event.target.parentNode;
-	    } else if (event.target.parentNode.parentNode.classList.contains("blogContainerDiv")){
-	    selectedBlogPost = event.target.parentNode.parentNode;
-	  	} else if (event.target.parentNode.parentNode.parentNode.classList.contains("blogContainerDiv")){
-	    selectedBlogPost = event.target.parentNode.parentNode.parentNode;
-	  	} else if (event.target.parentNode.parentNode.parentNode.parentNode.classList.contains("blogContainerDiv")){
-	    selectedBlogPost = event.target.parentNode.parentNode.parentNode.parentNode;
-	  	}
-	  	console.log(selectedBlogPost);
-	  	selectedBlogPostDiv.innerHTML = selectedBlogPost.innerHTML;
+	//let selectedBlogPost;
+	//console.log($(this));
+	$("#selectedBlogPost").html($(event.currentTarget).html());
 };
 
 
@@ -105,6 +94,8 @@ const data = require('./data');
 data.requestBlogPosts();
 
 data.onBlogClick();
+
+// data.showPostInMainDiv();
 
 
 

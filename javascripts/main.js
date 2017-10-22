@@ -6,6 +6,8 @@ data.requestBlogPosts();
 
 data.onBlogClick();
 
+// data.showPostInMainDiv();
+
 
 
 
