@@ -35,7 +35,7 @@ const showPostInMainDiv = (event) => {
 
 let firebaseKey = "";
 
-const setKey = (key) => {
+const setFirebaseKey = (key) => {
 	firebaseKey = key;
 };
 
@@ -44,7 +44,7 @@ const apiKeys = () => {
 		$.ajax({
 			url: `db/apiKeys.json`
 		}).done((data) => {
-			resolve(data.apiKeys);
+			resolve(data);
 		}).fail((error) => {
 			reject(error);
 		});
@@ -53,7 +53,7 @@ const apiKeys = () => {
 
 const retrieveKeys = () => {
 	apiKeys().then((results) => {
-		setKey(results.firebase);
+		setFirebaseKey(results.firebase);
 		firebase.initializeApp(results.firebase);
 		onBlogClick();
 		return getBlogPosts();
@@ -65,10 +65,10 @@ const retrieveKeys = () => {
 };
 
 const getBlogPosts = () => {
-	let blogs = [];
+	let blog = [];
 	return new Promise((resolve, reject) => {
 		// console.log("firebaseKey", firebaseKey);
-		$.ajax(`${firebaseKey.databaseURL}/blogs.json`).then((fbBlogs) => {
+		$.ajax(`${firebaseKey.databaseURL}/blog.json`).then((fbBlogs) => {
 			if (fbBlogs !== null){
 				resolve(fbBlogs);
 			}

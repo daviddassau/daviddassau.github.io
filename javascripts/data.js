@@ -64,10 +64,10 @@ const retrieveKeys = () => {
 };
 
 const getBlogPosts = () => {
-	let blogs = [];
+	let blog = [];
 	return new Promise((resolve, reject) => {
 		// console.log("firebaseKey", firebaseKey);
-		$.ajax(`${firebaseKey.databaseURL}/blogs.json`).then((fbBlogs) => {
+		$.ajax(`${firebaseKey.databaseURL}/blog.json`).then((fbBlogs) => {
 			if (fbBlogs !== null){
 				resolve(fbBlogs);
 			}
