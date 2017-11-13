@@ -26,12 +26,8 @@ const onBlogClick = () => {
 
 
 const showPostInMainDiv = (event) => {
-	//let selectedBlogPost;
-	//console.log($(this));
 	$("#selectedBlogPost").html($(event.currentTarget).html());
 };
-
-
 
 
 
@@ -46,9 +42,9 @@ const setKey = (key) => {
 const apiKeys = () => {
 	return new Promise ((resolve, reject) => {
 		$.ajax({
-			url: `./db/apiKeys.json`
+			url: `db/apiKeys.json`
 		}).done((data) => {
-			resolve(data);
+			resolve(data.apiKeys);
 		}).fail((error) => {
 			reject(error);
 		});
@@ -68,28 +64,10 @@ const retrieveKeys = () => {
 	});
 };
 
-// const retrieveKeys = () => {
-//     apiKeys().then((results) => {        
-//         setFirebaseKey(results.firebase);
-//         firebase.initializeApp(results.firebase);
-//         events.myLinks();
-//         return getBlogs();
-//     }).then((blogs) => {
-//         dom.createBlogDomString(blogs);
-//         return getJobs();
-//     }).then((jobs) => {
-//         dom.createJobDomString(jobs);
-//         return getProjects();
-//     }).then((projects) => {
-//     	dom.createPortfolioDomString(projects);
-//     }).catch((error) => {
-//         console.log(error); 
-//     });
-// };
-
 const getBlogPosts = () => {
 	let blogs = [];
 	return new Promise((resolve, reject) => {
+		// console.log("firebaseKey", firebaseKey);
 		$.ajax(`${firebaseKey.databaseURL}/blogs.json`).then((fbBlogs) => {
 			if (fbBlogs !== null){
 				resolve(fbBlogs);
@@ -99,37 +77,6 @@ const getBlogPosts = () => {
 		});
 	});
 };
-
-
-// const getBlogs = () => {
-//     let blogs = []; 
-//     return new Promise((resolve, reject) => {
-//         $.ajax(`${firebaseKey.databaseURL}/blogs.json`).then((fbBlogs) => { 
-//             if (fbBlogs !== null) {
-//                 resolve(fbBlogs) ;
-//             }         
-//         }).catch((err) => {
-//             console.log(err);
-//         });
-//     }); 
-// };
-
-// code from theme park project
-// const getAreas = () => {
-//     return new Promise((resolve, reject) => {
-//         $.ajax(`${firebaseKey.databaseURL}/areas.json`).then((fbAreas) => { 
-//             if (fbAreas !== null) {
-//                 resolve(fbAreas);
-//             }
-//         }).catch((err) => {
-//             reject(err); 
-//         });
-//     });
-// };
-
-
-
-
 
 module.exports = {onBlogClick, retrieveKeys};
 
