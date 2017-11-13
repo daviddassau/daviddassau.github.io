@@ -1,6 +1,32 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+const firebaseApi = require('./firebaseApi');
+
+const apiKeys = () => {
+	return new Promise ((resolve, reject) => {
+		$.ajax('./db/apiKeys.json').done((data) => {
+			resolve(data.apiKeys);
+		}).fail((error) => {
+			reject(error);
+		});
+	});
+};
+
+const retrieveKeys = () => {
+	apiKeys().then((results) => {
+		firebaseApi.setKey(results.firebaseKeys);
+		firebase.initializeApp(results.firebaseKeys);
+		console.log("firebase apps?", firebase.apps);
+	}).catch((error) => {
+		console.log("error in retrieveKeys", error);
+	});
+};
+
+module.exports = {retrieveKeys};
+},{"./firebaseApi":4}],2:[function(require,module,exports){
+"use strict";
+
 
 const dom = require('./dom');
 
@@ -54,7 +80,7 @@ module.exports = {requestBlogPosts, onBlogClick};
 
 
 
-},{"./dom":2}],2:[function(require,module,exports){
+},{"./dom":3}],3:[function(require,module,exports){
 "use strict";
 
 const blogContainer = $('#blog-container');
@@ -86,10 +112,23 @@ const writeToDom = (domString) => {
 
 
 module.exports = blogString;
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+"use strict";
+
+let firebaseKey = "";
+
+const setKey = (key) => {
+	firebaseKey = key;
+};
+
+module.exports = {setKey};
+},{}],5:[function(require,module,exports){
 "use strict";
 
 const data = require('./data');
+const apiKeys = require('./apiKeys');
+
+apiKeys.retrieveKeys();
 
 data.requestBlogPosts();
 
@@ -112,4 +151,4 @@ data.onBlogClick();
 
 
 
-},{"./data":1}]},{},[3]);
+},{"./apiKeys":1,"./data":2}]},{},[5]);
