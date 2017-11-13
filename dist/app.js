@@ -1,69 +1,28 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-const firebaseApi = require('./firebaseApi');
-
-const apiKeys = () => {
-	return new Promise ((resolve, reject) => {
-		$.ajax('./db/apiKeys.json').done((data) => {
-			resolve(data.apiKeys);
-		}).fail((error) => {
-			reject(error);
-		});
-	});
-};
-
-const retrieveKeys = () => {
-	apiKeys().then((results) => {
-		firebaseApi.setKey(results.firebaseKeys);
-		firebase.initializeApp(results.firebaseKeys);
-		console.log("firebase apps?", firebase.apps);
-	}).catch((error) => {
-		console.log("error in retrieveKeys", error);
-	});
-};
-
-module.exports = {retrieveKeys};
-},{"./firebaseApi":4}],2:[function(require,module,exports){
-"use strict";
-
 
 const dom = require('./dom');
 
 // NEW JQUERY STUFF
-const requestBlogPosts = () => {
-	$.ajax('./db/blog.json').done((data) => {
-		dom(data.blog);
-	}).fail((error) => {
-		console.log(error);
-	});
-};
-
-
+// const requestBlogPosts = () => {
+// 	$.ajax('./db/blog.json').done((data) => {
+// 		dom(data.blog);
+// 	}).fail((error) => {
+// 		console.log(error);
+// 	});
+// };
 
 
 const blogPosts = $("#blog-container");
 let selectedBlogPostDiv = $('#selectedBlogPost');
 
-// Event listener for when user clicks on single blog post
-// blogPosts.addEventListener('click', function(event){
-// 	showPostInMainDiv(event);
-// });
 
 const onBlogClick = () => {
 	$("#blog-container").on("click", ".blogContainerDiv", function(event){
 		showPostInMainDiv(event);
 	});
 };
-
-
-// const showPostInMainDiv = (event) => {
-// 	let selectedBlogPost;
-// 	if(){
-		
-// 	}
-// };
-
 
 
 const showPostInMainDiv = (event) => {
@@ -76,11 +35,107 @@ const showPostInMainDiv = (event) => {
 
 
 
-module.exports = {requestBlogPosts, onBlogClick};
+// Firebase Promises
+
+let firebaseKey = "";
+
+const setKey = (key) => {
+	firebaseKey = key;
+};
+
+const apiKeys = () => {
+	return new Promise ((resolve, reject) => {
+		$.ajax({
+			url: `./db/apiKeys.json`
+		}).done((data) => {
+			resolve(data);
+		}).fail((error) => {
+			reject(error);
+		});
+	});
+};
+
+const retrieveKeys = () => {
+	apiKeys().then((results) => {
+		setKey(results.firebase);
+		firebase.initializeApp(results.firebase);
+		onBlogClick();
+		return getBlogPosts();
+	}).then((blogs) => {
+		dom.blogString(blogs);	
+	}).catch((error) => {
+		console.log("error in retrieveKeys", error);
+	});
+};
+
+// const retrieveKeys = () => {
+//     apiKeys().then((results) => {        
+//         setFirebaseKey(results.firebase);
+//         firebase.initializeApp(results.firebase);
+//         events.myLinks();
+//         return getBlogs();
+//     }).then((blogs) => {
+//         dom.createBlogDomString(blogs);
+//         return getJobs();
+//     }).then((jobs) => {
+//         dom.createJobDomString(jobs);
+//         return getProjects();
+//     }).then((projects) => {
+//     	dom.createPortfolioDomString(projects);
+//     }).catch((error) => {
+//         console.log(error); 
+//     });
+// };
+
+const getBlogPosts = () => {
+	let blogs = [];
+	return new Promise((resolve, reject) => {
+		$.ajax(`${firebaseKey.databaseURL}/blogs.json`).then((fbBlogs) => {
+			if (fbBlogs !== null){
+				resolve(fbBlogs);
+			}
+		}).catch((err) => {
+			console.log(err);
+		});
+	});
+};
+
+
+// const getBlogs = () => {
+//     let blogs = []; 
+//     return new Promise((resolve, reject) => {
+//         $.ajax(`${firebaseKey.databaseURL}/blogs.json`).then((fbBlogs) => { 
+//             if (fbBlogs !== null) {
+//                 resolve(fbBlogs) ;
+//             }         
+//         }).catch((err) => {
+//             console.log(err);
+//         });
+//     }); 
+// };
+
+// code from theme park project
+// const getAreas = () => {
+//     return new Promise((resolve, reject) => {
+//         $.ajax(`${firebaseKey.databaseURL}/areas.json`).then((fbAreas) => { 
+//             if (fbAreas !== null) {
+//                 resolve(fbAreas);
+//             }
+//         }).catch((err) => {
+//             reject(err); 
+//         });
+//     });
+// };
 
 
 
-},{"./dom":3}],3:[function(require,module,exports){
+
+
+module.exports = {onBlogClick, retrieveKeys};
+
+
+
+},{"./dom":2}],2:[function(require,module,exports){
 "use strict";
 
 const blogContainer = $('#blog-container');
@@ -112,25 +167,13 @@ const writeToDom = (domString) => {
 
 
 module.exports = blogString;
-},{}],4:[function(require,module,exports){
-"use strict";
-
-let firebaseKey = "";
-
-const setKey = (key) => {
-	firebaseKey = key;
-};
-
-module.exports = {setKey};
-},{}],5:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 "use strict";
 
 const data = require('./data');
-const apiKeys = require('./apiKeys');
 
-apiKeys.retrieveKeys();
+data.retrieveKeys();
 
-data.requestBlogPosts();
 
 data.onBlogClick();
 
@@ -151,4 +194,4 @@ data.onBlogClick();
 
 
 
-},{"./apiKeys":1,"./data":2}]},{},[5]);
+},{"./data":1}]},{},[3]);
