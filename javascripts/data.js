@@ -3,25 +3,10 @@
 
 const dom = require('./dom');
 
-// NEW JQUERY STUFF
-const requestBlogPosts = () => {
-	$.ajax('./db/blog.json').done((data) => {
-		dom(data.blog);
-	}).fail((error) => {
-		console.log(error);
-	});
-};
-
-
-
 
 const blogPosts = $("#blog-container");
 let selectedBlogPostDiv = $('#selectedBlogPost');
 
-// Event listener for when user clicks on single blog post
-// blogPosts.addEventListener('click', function(event){
-// 	showPostInMainDiv(event);
-// });
 
 const onBlogClick = () => {
 	$("#blog-container").on("click", ".blogContainerDiv", function(event){
@@ -30,25 +15,70 @@ const onBlogClick = () => {
 };
 
 
-// const showPostInMainDiv = (event) => {
-// 	let selectedBlogPost;
-// 	if(){
-		
-// 	}
-// };
-
-
-
 const showPostInMainDiv = (event) => {
-	//let selectedBlogPost;
-	//console.log($(this));
 	$("#selectedBlogPost").html($(event.currentTarget).html());
 };
 
 
 
+// Firebase Promises
 
+let firebaseKey = "";
 
-module.exports = {requestBlogPosts, onBlogClick};
+const setFirebaseKey = (key) => {
+	firebaseKey = key;
+};
+
+const apiKeys = () => {
+	return new Promise ((resolve, reject) => {
+		$.ajax({
+			url: `db/apiKeys.json`
+		}).done((data) => {
+			resolve(data.apiKeys.firebaseKeys);
+			console.log(data.apiKeys.firebaseKeys);
+		}).fail((error) => {
+			reject(error);
+		});
+	});
+};
+
+const retrieveKeys = () => {
+	apiKeys().then((results) => {
+		setFirebaseKey(results);
+		firebase.initializeApp(results);
+		callBlogPosts();
+	}).then((blogs) => {
+		// dom.blogString(blogs);	
+	}).catch((error) => {
+		console.log("error in retrieveKeys", error);
+	});
+};
+
+const getBlogPosts = () => {
+	let blog = [];
+	return new Promise((resolve, reject) => {
+		$.ajax(`${firebaseKey.databaseURL}/blog.json`).then((fbBlogs) => {
+			if (fbBlogs !== null){
+				Object.keys(fbBlogs).forEach((key) => {
+					fbBlogs[key].id = key;
+					blog.push(fbBlogs[key]);
+				});
+			}
+			resolve(blog);
+		}).catch((err) => {
+			reject(err);
+		});
+	});
+};
+
+const callBlogPosts = () => {
+	getBlogPosts().then((results) => {
+		dom.blogString(results);
+	}).catch((error) => {
+		console.log("error in callBlogPosts", error);
+	});
+};
+
+module.exports = {onBlogClick, retrieveKeys};
 
 

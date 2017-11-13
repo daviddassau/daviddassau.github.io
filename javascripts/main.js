@@ -2,7 +2,8 @@
 
 const data = require('./data');
 
-data.requestBlogPosts();
+data.retrieveKeys();
+
 
 data.onBlogClick();
 
