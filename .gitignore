@@ -1,2 +1,4 @@
-.DS_Store
+.DS_store
 lib/node_modules
+db/apiKeys.json
+public
