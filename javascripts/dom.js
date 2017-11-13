@@ -28,4 +28,4 @@ const writeToDom = (domString) => {
 };
 
 
-module.exports = blogString;
+module.exports = {blogString};

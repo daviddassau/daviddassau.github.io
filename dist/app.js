@@ -44,7 +44,8 @@ const apiKeys = () => {
 		$.ajax({
 			url: `db/apiKeys.json`
 		}).done((data) => {
-			resolve(data);
+			resolve(data.apiKeys.firebaseKeys);
+			console.log(data.apiKeys.firebaseKeys);
 		}).fail((error) => {
 			reject(error);
 		});
@@ -53,12 +54,11 @@ const apiKeys = () => {
 
 const retrieveKeys = () => {
 	apiKeys().then((results) => {
-		setFirebaseKey(results.firebase);
-		firebase.initializeApp(results.firebase);
-		onBlogClick();
-		return getBlogPosts();
+		setFirebaseKey(results);
+		firebase.initializeApp(results);
+		callBlogPosts();
 	}).then((blogs) => {
-		dom.blogString(blogs);	
+		// dom.blogString(blogs);	
 	}).catch((error) => {
 		console.log("error in retrieveKeys", error);
 	});
@@ -67,14 +67,25 @@ const retrieveKeys = () => {
 const getBlogPosts = () => {
 	let blog = [];
 	return new Promise((resolve, reject) => {
-		// console.log("firebaseKey", firebaseKey);
 		$.ajax(`${firebaseKey.databaseURL}/blog.json`).then((fbBlogs) => {
 			if (fbBlogs !== null){
-				resolve(fbBlogs);
+				Object.keys(fbBlogs).forEach((key) => {
+					fbBlogs[key].id = key;
+					blog.push(fbBlogs[key]);
+				});
 			}
+			resolve(blog);
 		}).catch((err) => {
-			console.log(err);
+			reject(err);
 		});
+	});
+};
+
+const callBlogPosts = () => {
+	getBlogPosts().then((results) => {
+		dom.blogString(results);
+	}).catch((error) => {
+		console.log("error in callBlogPosts", error);
 	});
 };
 
@@ -113,7 +124,7 @@ const writeToDom = (domString) => {
 };
 
 
-module.exports = blogString;
+module.exports = {blogString};
 },{}],3:[function(require,module,exports){
 "use strict";
 
