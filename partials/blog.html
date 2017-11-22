@@ -1,0 +1,25 @@
+<div class="tblog" id="blog" ng-controller="BlogCtrl">
+    <h1>Blog</h1>
+
+    <div class="input-group input-group-lg col-xs-6 col-xs-offset-3">
+        <span class="input-group-addon glyphicon glyphicon-search" aria-hidden="true"></span>
+        <input type="text" class="form-control" placeholder="Find a blog post" ng-model="searchText">
+    </div>
+    
+    <div id="viewBlogPosts">
+        <div ng-repeat="blog in blogs | filter: searchText" class="col-sm-6 col-md-4">
+            <div class="thumbnail set-height">
+                <div class="caption">
+                    <div>
+                        <h4>{{blogs.postTitle}}</h4>
+                        <p class="blog-date small">{{blogs.postDate}}</p>
+                    </div>
+                    <div class="blog-body">
+                        <p>{{blogs.postBody}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
