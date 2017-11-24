@@ -26,5 +26,9 @@ app.config(function ($routeProvider) {
             templateUrl: 'partials/blog.html',
             controller: 'BlogCtrl'
         })
+        .when("/blog_detail/:id", {
+            templateUrl: 'partials/blog_detail.html',
+            controller: 'BlogDetailCtrl'
+        })
         .otherwise('/professional-history');
 });
