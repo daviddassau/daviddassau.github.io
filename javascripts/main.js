@@ -1,13 +1,13 @@
-"use strict";
+// "use strict";
 
-const data = require('./data');
+// const data = require('./data');
 
-data.retrieveKeys();
+// data.retrieveKeys();
 
 
-data.onBlogClick();
+// data.onBlogClick();
 
-// data.showPostInMainDiv();
+// // data.showPostInMainDiv();
 
 
 

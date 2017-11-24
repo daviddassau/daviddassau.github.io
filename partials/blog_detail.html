@@ -1,0 +1,14 @@
+<div>
+    <div class="col-sm-12 blog-detail">
+        <div>
+            <h4>{{blogs.postTitle}}</h4>
+            <p class="blog-date small">{{blogs.postDate}}</p>
+        </div>
+        <div class="blog-body">
+            <div ng-bind-html="blogs.postBody"></div>
+        </div>
+        <div>
+            <button class="btn btn-default" ng-click="mainBlogPage(blog.id)"><i class="fa fa-arrow-circle-left"></i> Back to Blogs</button>
+        </div>
+    </div>
+</div>

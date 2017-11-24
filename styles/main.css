@@ -10,11 +10,18 @@ h3 {
 a {
   color: #B64926; }
 
+.thumbnail {
+  position: relative; }
+  .thumbnail .detail {
+    position: absolute;
+    right: 15px;
+    top: 15px; }
+
 body {
   background-color: #FFB03B;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
-.thumbnail {
+.thumbnail, .blog-detail {
   background-color: #FFF0A5;
   border: solid 1px #B64926;
   -webkit-box-shadow: 3px 3px 10px -2px #8e2800;
@@ -35,3 +42,6 @@ body {
 
 .all-articles {
   margin-top: 2em; }
+
+.search-bar-padding {
+  margin-bottom: 30px; }
