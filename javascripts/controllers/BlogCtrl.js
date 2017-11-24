@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("BlogCtrl", function ($scope, PersonalBioService) {
+app.controller("BlogCtrl", function ($location, $scope, PersonalBioService) {
     
     const getBlogs = () => {
         $scope.blogs = [];
@@ -13,5 +13,9 @@ app.controller("BlogCtrl", function ($scope, PersonalBioService) {
     };
 
     getBlogs();
+
+    $scope.blogDetail = (blogsId) => {
+        $location.path(`/blog_detail/${blogsId}`);
+    };
 
 });

@@ -18,6 +18,10 @@ app.service("PersonalBioService", function ($http, $q, FIREBASE_CONFIG){
         });
     };
 
-    return {getBlogPosts};
+    const getSingleBlogPost = (blogsId) => {
+        return $http.get(`${FIREBASE_CONFIG.databaseURL}/blogs/${blogsId}.json`);
+    };
+
+    return {getBlogPosts, getSingleBlogPost};
 
 });
