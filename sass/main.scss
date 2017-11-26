@@ -7,6 +7,10 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
+
 .thumbnail, .blog-detail {
 	background-color: #FFF0A5;
 	border: solid 1px #B64926;
@@ -34,4 +38,8 @@ body {
 
 .search-bar-padding {
     margin-bottom: 30px;
+}
+
+footer {
+    text-align: center;
 }
