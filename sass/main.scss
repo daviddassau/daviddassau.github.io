@@ -1,14 +1,11 @@
 @import 'contact-info';
+@import 'about-me';
+@import 'professional-history';
 @import 'blog';
 
 
 body {
-	background-color: #FFB03B;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-h1 {
-    text-align: center;
 }
 
 .thumbnail, .blog-detail {
@@ -42,4 +39,8 @@ h1 {
 
 footer {
     text-align: center;
+}
+
+img {
+    margin: 0 auto;
 }

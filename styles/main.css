@@ -10,6 +10,16 @@ h3 {
 a {
   color: #B64926; }
 
+.about-me {
+  padding-bottom: 25px; }
+
+.professional-history {
+  background-color: lightgray; }
+  .professional-history h2, .professional-history h3, .professional-history h4 {
+    text-align: center; }
+  .professional-history img {
+    margin: 0 auto; }
+
 .thumbnail {
   position: relative; }
   .thumbnail .detail {
@@ -21,11 +31,7 @@ a {
   padding-bottom: 15px; }
 
 body {
-  background-color: #FFB03B;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-
-h1 {
-  text-align: center; }
 
 .thumbnail, .blog-detail {
   background-color: #FFF0A5;
@@ -54,3 +60,6 @@ h1 {
 
 footer {
   text-align: center; }
+
+img {
+  margin: 0 auto; }
