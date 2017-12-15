@@ -1,3 +1,7 @@
+.contact-info {
+  background-color: #faa318;
+  opacity: .5; }
+
 .glyphicon {
   font-size: 3em; }
 
@@ -11,10 +15,15 @@ a {
   color: #B64926; }
 
 .about-me {
-  padding-bottom: 25px; }
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: #ffffff; }
 
 .professional-history {
-  background-color: lightgray; }
+  background-color: #faa318;
+  opacity: .5;
+  color: #003c6c;
+  padding-bottom: 20px; }
   .professional-history h2, .professional-history h3, .professional-history h4 {
     text-align: center; }
   .professional-history img {
@@ -33,8 +42,22 @@ a {
 .blog-detail {
   padding-bottom: 15px; }
 
+.navbar {
+  margin-bottom: 0px; }
+
+.projects h2 {
+  color: #ffffff; }
+
+.projects .thumbnail {
+  opacity: .5; }
+
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: url(../img/wallpaper.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 #blog-container .set-height {
   display: block;
