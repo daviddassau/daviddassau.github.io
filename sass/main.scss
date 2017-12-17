@@ -1,23 +1,27 @@
 @import 'contact-info';
+@import 'about-me';
+@import 'professional-history';
 @import 'blog';
+@import 'navbar';
+@import 'projects';
 
 
 body {
-	background-color: #FFB03B;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: url(../img/wallpaper.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-h1 {
-    text-align: center;
-}
-
-.thumbnail, .blog-detail {
-	background-color: #FFF0A5;
-	border: solid 1px #B64926;
-	-webkit-box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
-	-moz-box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
-	box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
-}
+// .thumbnail, .blog-detail {
+// 	background-color: #FFF0A5;
+// 	border: solid 1px #B64926;
+// 	-webkit-box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
+// 	-moz-box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
+// 	box-shadow: 3px 3px 10px -2px rgba(142,40,0,1);
+// }
 
 #blog-container .set-height {
     display: block;
@@ -42,4 +46,8 @@ h1 {
 
 footer {
     text-align: center;
+}
+
+img {
+    margin: 0 auto;
 }

@@ -1,3 +1,7 @@
+.contact-info {
+  background-color: #faa318;
+  opacity: .5; }
+
 .glyphicon {
   font-size: 3em; }
 
@@ -10,6 +14,24 @@ h3 {
 a {
   color: #B64926; }
 
+.about-me {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: #ffffff; }
+
+.professional-history {
+  background-color: #faa318;
+  opacity: .5;
+  color: #003c6c;
+  padding-bottom: 20px; }
+  .professional-history h2, .professional-history h3, .professional-history h4 {
+    text-align: center; }
+  .professional-history img {
+    margin: 0 auto; }
+
+.blog {
+  background-color: lightgray; }
+
 .thumbnail {
   position: relative; }
   .thumbnail .detail {
@@ -20,19 +42,22 @@ a {
 .blog-detail {
   padding-bottom: 15px; }
 
+.navbar {
+  margin-bottom: 0px; }
+
+.projects h2 {
+  color: #ffffff; }
+
+.projects .thumbnail {
+  opacity: .5; }
+
 body {
-  background-color: #FFB03B;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-
-h1 {
-  text-align: center; }
-
-.thumbnail, .blog-detail {
-  background-color: #FFF0A5;
-  border: solid 1px #B64926;
-  -webkit-box-shadow: 3px 3px 10px -2px #8e2800;
-  -moz-box-shadow: 3px 3px 10px -2px #8e2800;
-  box-shadow: 3px 3px 10px -2px #8e2800; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: url(../img/wallpaper.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 #blog-container .set-height {
   display: block;
@@ -54,3 +79,6 @@ h1 {
 
 footer {
   text-align: center; }
+
+img {
+  margin: 0 auto; }
