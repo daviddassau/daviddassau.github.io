@@ -1,6 +1,7 @@
 .contact-info {
   background-color: #faa318;
-  opacity: .5; }
+  opacity: .5;
+  padding-bottom: 20px; }
 
 .glyphicon {
   font-size: 3em; }
@@ -40,7 +41,15 @@ a {
     top: 15px; }
 
 .blog-detail {
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+  background-color: white;
+  opacity: .5; }
+
+.blog-detail-margin {
+  margin-top: 20px; }
+
+#blog h2 {
+  color: white; }
 
 .navbar {
   margin-bottom: 0px; }
