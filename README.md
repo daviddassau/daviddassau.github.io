@@ -2,7 +2,13 @@
 ### This project can be view at https://personal-site-12d0f.firebaseapp.com/#!/home
 
 This is my portfolio site, written using AngularJS as the JS framework, and Google's Firebase to host my blog posts. The site was completed at the conclusion of the front-end portion of my time at the Nashville Software School (December 2017). It contains traditional portfolio site information, such as: 
-- An "About Me" section, containing a short summary of myself and why I decided to pursue software development.
+- A short summary of myself and why I decided to pursue software development.
+- A listing of my work and academic experience.
+- A few projects that I've completed, with Github links.
+- A page with all of my blog posts written during the front-end at NSS.
+- And contact information
+
+
 
 ##### Part 1 Requirements
 > Basically an HTML version of your resume.
